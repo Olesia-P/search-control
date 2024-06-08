@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+body {
+  margin: 0;
+  background-color: black;
+  font-family: "IBM Plex Mono", monospace;
+
+  font-style: normal;
+}
+
+:root {
+  --main-border-radius: 10px;
+  --main-border: 1px solid rgb(131, 131, 131);
+  --white: rgb(224, 224, 224);
+  --hover: rgba(255, 255, 255, 0.219);
+}
+
+/* reset */
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0;
+}
+
+input[type="search"] {
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+textarea {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
