@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import css from "./list.module.css";
 import { IoIosStar } from "react-icons/io";
 import { IoIosStarOutline } from "react-icons/io";
@@ -11,6 +11,7 @@ type SearchListProps = {
   visibleItemsLength: number;
   containerHeight: string;
   totalItems: number;
+  query: string;
 };
 
 const List = ({
@@ -18,10 +19,13 @@ const List = ({
   totalItems,
   items,
   visibleItemsLength,
+  query,
 }: SearchListProps) => {
   const totalHeight = rowHeight * totalItems;
   const [scrollTop, setScrollTop] = useState(0);
-  const startNodeElem = Math.ceil(scrollTop / rowHeight);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const startNodeElem = Math.floor(scrollTop / rowHeight);
   const visibleItems = items?.slice(
     startNodeElem,
     startNodeElem + visibleItemsLength
@@ -42,8 +46,14 @@ const List = ({
     );
   };
 
+  useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollTop = 0;
+    }
+  }, [items]);
+
   return (
-    <div className={css.container} onScroll={handleScroll}>
+    <div className={css.container} onScroll={handleScroll} ref={listRef}>
       <div style={{ height: totalHeight }}>
         <ul
           className={css.listWrap}
@@ -70,6 +80,10 @@ const List = ({
               {item.name}
             </li>
           ))}
+
+          {items.length === 0 && query && (
+            <li className={css.emptyListMessage}>No search results found</li>
+          )}
         </ul>
       </div>
     </div>

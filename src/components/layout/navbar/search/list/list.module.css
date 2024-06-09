@@ -12,12 +12,11 @@
 .item {
   list-style-type: none;
   margin: 0;
-  padding: 0 1rem;
+  padding: 0 0.7rem;
   display: flex;
   align-items: center;
   border-radius: var(--main-border-radius);
   cursor: pointer;
-  user-select: none;
   font-weight: 300;
 }
 
@@ -36,6 +35,25 @@
   height: 100%;
 }
 
+.emptyListMessage {
+  font-weight: 300;
+  margin-left: 0.8rem;
+  list-style-type: none;
+  color: rgb(155, 155, 155);
+}
+
 ::-webkit-scrollbar {
-  display: none;
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(170, 170, 170);
 }

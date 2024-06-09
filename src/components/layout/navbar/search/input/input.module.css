@@ -17,10 +17,11 @@
 }
 
 .icon {
-  color: var(--white);
-  width: 24px;
-  height: 24px;
+  color: rgb(143, 143, 143);
+  width: 22px;
+  height: 22px;
   margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .icon svg {
@@ -28,6 +29,9 @@
   height: 100%;
 }
 
+.focusedIcon {
+  color: var(--white);
+}
 .cross {
   position: absolute;
   right: 1rem;

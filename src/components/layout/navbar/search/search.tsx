@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import css from "./search.module.css";
 import { SearchDropdown } from "./dropdown/dropdown";
 import { SearchContext } from "./search-context/search-context";
@@ -42,20 +42,33 @@ export const Search = () => {
     setFavorites(favoritesArray);
   }, [coins]);
 
-  const searchRef = useClickOutsideClose(setIsDropdownOpen, isDropdownOpen);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+  const portalContainerRef = useRef<HTMLDivElement | null>(null);
+  const searchRef = useClickOutsideClose(
+    setIsDropdownOpen,
+    isDropdownOpen,
+    buttonRef,
+    portalContainerRef
+  );
 
   return (
     <div className={css.container} ref={searchRef}>
       <div
         className={`${css.searchButton} ${isDropdownOpen ? css.clicked : ""}`}
         onClick={() => handleSearchButtonClick()}
+        ref={buttonRef}
       >
         <i className={css.icon}>
           <IoIosSearch />
         </i>
         SEARCH
       </div>
-      {isDropdownOpen && <SearchDropdown coins={coins} favorites={favorites} />}
+      <SearchDropdown
+        coins={coins}
+        favorites={favorites}
+        isOpen={isDropdownOpen}
+        innerRef={portalContainerRef}
+      />
     </div>
   );
 };

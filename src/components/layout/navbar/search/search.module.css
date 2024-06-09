@@ -1,6 +1,7 @@
 .container {
   position: relative;
   margin-left: 16rem;
+  user-select: none;
 }
 
 .searchButton {
@@ -29,8 +30,11 @@
 
 .icon {
   margin-right: 0.4rem;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon svg {

@@ -1,24 +1,21 @@
 .container {
   height: 26rem;
-  width: 18rem;
+  width: 17.5rem;
   background-color: black;
   border-radius: var(--main-border-radius);
   border: var(--main-border);
   position: absolute;
-  top: 2, 5rem;
-  right: 0rem;
+  top: 2.85rem;
+  left: 5.3rem;
   display: flex;
-  /* justify-content: center; */
   flex-direction: column;
 }
 
 .headersWrap {
-  /* background-color: red; */
   color: var(--white);
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
-  padding: 0.5rem 1rem 0 1rem;
+  padding: 0.5rem 0.6rem;
   height: 1.8rem;
 }
 .favorites,
@@ -27,7 +24,7 @@
   padding: 0;
   margin: 0;
   font-weight: 300;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -43,8 +40,10 @@
   align-items: center;
   margin-right: 0.5rem;
 }
-.allCoins {
+
+.chosenTab {
   font-weight: 500;
+  pointer-events: none;
 }
 
 .icon {
